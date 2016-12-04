@@ -27,8 +27,7 @@
       }
     },
     template: `   
-      <inputs></inputs>
-      <button ng-click="$ctrl.onChange(model)">Click</button>
+      <inputs on-change="$ctrl.onChange(model)"></inputs>
       <final-text 
       	male-name="$ctrl.male_name",
       	job-title="$ctrl.job_title",
@@ -79,7 +78,7 @@
           <input placeholder="Obnoxious Celebrity" ng-model="$ctrl.model.obnoxiousCelebrity" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
           <input placeholder="Huge Number" ng-model="$ctrl.model.hugeNumber" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
           <input placeholder="Adjective" ng-model="$ctrl.model.adjective" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-        </article>  
+        </article>      
       </section>
     `
   })
