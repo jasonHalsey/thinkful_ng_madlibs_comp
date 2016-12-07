@@ -13,7 +13,7 @@
         this.huge_number = "Huge Number";
         this.adjective = "Adjective";  
       }
-      
+
       onChange(model) {
         this.male_name = model.maleName;
         this.job_title = model.jobTitle;
@@ -27,7 +27,7 @@
       }
     },
     template: `   
-      <inputs on-change="$ctrl.onChange(model)"></inputs>
+      <inputs ng-submit="$ctrl.onChange(model)"></inputs>
       <final-text 
       	male-name="$ctrl.male_name",
       	job-title="$ctrl.job_title",
@@ -64,22 +64,26 @@
     },
     template: `
       <section class="input-container">
+      	<form name="$ctrl.model.myform" ng-submit="$ctrl.onChange({ model: $ctrl.model })" novalidate >
         <article>
-          <input placeholder="Male Name" ng-model="$ctrl.model.maleName" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Job Title" ng-model="$ctrl.model.jobTitle" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Tedious Task" ng-model="$ctrl.model.tediousTask" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
+          <input placeholder="Male Name" ng-model="$ctrl.model.maleName" /> 
+          <input placeholder="Job Title" ng-model="$ctrl.model.jobTitle" /> 
+          <input placeholder="Tedious Task" ng-model="$ctrl.model.tediousTask" /> 
         </article>
         <article>
-          <input placeholder="Dirty Task" ng-model="$ctrl.model.dirtyTask" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Celebrity" ng-model="$ctrl.model.celebrity" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Useless Skill" ng-model="$ctrl.model.uselessSkill" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
+          <input placeholder="Dirty Task" ng-model="$ctrl.model.dirtyTask" /> 
+          <input placeholder="Celebrity" ng-model="$ctrl.model.celebrity" /> 
+          <input placeholder="Useless Skill" ng-model="$ctrl.model.uselessSkill" /> 
         </article>
         <article>
-          <input placeholder="Obnoxious Celebrity" ng-model="$ctrl.model.obnoxiousCelebrity" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Huge Number" ng-model="$ctrl.model.hugeNumber" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-          <input placeholder="Adjective" ng-model="$ctrl.model.adjective" ng-change="$ctrl.onChange({ model: $ctrl.model })" /> 
-        </article>      
+          <input placeholder="Obnoxious Celebrity" /> 
+          <input placeholder="Huge Number" ng-model="$ctrl.model.hugeNumber" /> 
+          <input placeholder="Adjective" ng-model="$ctrl.model.adjective" /> 
+        </article>
+        <button class="button" type="submit">Submit</button>
+        </form>      
       </section>
+
     `
   })
   .component('finalText', {
