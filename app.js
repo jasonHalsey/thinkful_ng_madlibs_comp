@@ -27,7 +27,7 @@
       }
     },
     template: `   
-      <inputs ng-submit="$ctrl.onChange(model)"></inputs>
+      <inputs on-change="$ctrl.onChange(model)"></inputs>
       <final-text 
       	male-name="$ctrl.male_name",
       	job-title="$ctrl.job_title",
